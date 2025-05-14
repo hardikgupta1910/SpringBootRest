@@ -20,6 +20,13 @@ public class JobRestController {
 		return service.getAllJobs();
 	}
 	
+	
+	@GetMapping("jobPosts/Keyword/{Keyword}")
+	public List<JobPost> searchByKeyword(@PathVariable String Keyword){
+		return service.search(Keyword);
+	}
+	
+	
 	@GetMapping("jobPost/{PostId}")
 	@ResponseBody
 	public JobPost getJob(@PathVariable("PostId") int PostId){
@@ -50,6 +57,13 @@ public class JobRestController {
 	public String deleteJob(@PathVariable  int postId){
 		service.deleteJob(postId);
 		return "Deleted";
+	}
+	
+	@GetMapping("load")
+	public String load(){
+		service.load();
+		
+		return " success";
 	}
 }
 
