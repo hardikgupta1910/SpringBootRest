@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@CrossOrigin(origins = "http://localhost:3000/")
+@CrossOrigin
 public class JobRestController {
 
 	@Autowired
@@ -30,6 +30,7 @@ public class JobRestController {
 	@GetMapping("jobPost/{PostId}")
 	@ResponseBody
 	public JobPost getJob(@PathVariable("PostId") int PostId){
+		
 		return service.getJob(PostId);
 	}
 	
